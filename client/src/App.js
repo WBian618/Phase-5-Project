@@ -1,11 +1,18 @@
+import Navbar from "./Navbar"
+import './App.css'
+import PostList from "./PostList";
+import SignUp from "./SignUp";
 
-import './App.css';
 
 function App() {
+
   return (
     <div className="App">
       <header className="App-header">
-        FUCK
+        InstaChat
+        <Navbar />
+        <PostList />
+        <SignUp />
       </header>
     </div>
   );

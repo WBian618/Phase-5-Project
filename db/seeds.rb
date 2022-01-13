@@ -5,3 +5,15 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+Post.destroy_all
+User.destroy_all
+Comment.destroy_all
+Like.destroy_all
+
+u1 = User.create(username: 'bob', password_digest:'password', email:'bob@gmail.com')
+
+p1 = Post.create(image: 'image', caption: 'blah blah blah', total_likes: 1, user_id: 1)
+
+c1 = Comment.create(comment: "noice", username: "bob", user_id: 1, post_id: 1)
+
+l1= Like.create(user_id: 1, post_id: 1)

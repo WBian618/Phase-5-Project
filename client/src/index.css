@@ -11,3 +11,18 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+.nav-button {
+  margin: 100px;
+  margin-top: 10px;
+  color: rgb(129, 129, 129);
+}
+
+.nav-button:hover {
+  color: white;
+}
+
+#camera {
+  position: relative;
+  float: left;
+}
