@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
     skip_before_action :authenticate_user, only: [:create,:index]
-
+    
     def create
         user = User.create!(
         username: params[:username],
@@ -9,6 +9,15 @@ class UsersController < ApplicationController
         password_confirmation: params[:password_confirmation])
     
         render json: user, status: :created
+    end
+
+    def show 
+        user = User.find_by(id: session[:user_id])
+        if user 
+            render json:user, status: :ok 
+        else 
+            render json: { error: "Not authorized"}, status: :unauthorized 
+        end 
     end
 
     def index 

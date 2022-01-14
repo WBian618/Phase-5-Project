@@ -15,14 +15,42 @@ code {
 .nav-button {
   margin: 100px;
   margin-top: 10px;
-  color: rgb(129, 129, 129);
+  color: rgb(202, 199, 199);
+  margin-bottom: 10px;
 }
 
 .nav-button:hover {
-  color: white;
+  color: rgb(129, 129, 129);
 }
 
 #camera {
   position: relative;
   float: left;
+}
+
+#search2 {
+  color: rgb(129, 129, 129);
+  max-width: 20px;
+}
+
+#searchbar {
+  border: 0;
+  outline: 0;
+  background: transparent;
+  border-bottom: 1px solid rgb(146, 146, 146);
+}
+
+input {
+  width: 300px;
+}
+
+.user-card {
+  /* border: 1px solid rgb(226, 226, 226); */
+  margin: 20px;
+  border-radius: 50px;
+  box-shadow: 5px 1px rgb(172, 172, 172);
+}
+
+h3 {
+margin: 5px;
 }
