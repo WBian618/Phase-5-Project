@@ -1,17 +1,27 @@
 import React, { useState } from 'react'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faFileUpload } from '@fortawesome/free-solid-svg-icons'
+import { faArrowCircleRight } from '@fortawesome/free-solid-svg-icons'
 
 function PostUpload() {
     const [selectedImage, setSelectedImage] = useState(null)
+
+    function handleSubmit() {
+        console.log('poop')
+    }
     return (
         <div>
-            <h1>Share Your Images!</h1>
+            <h1 id='share'> Share Your Image</h1>
             {selectedImage && (
                 <div>
                     <img alt="not found" width={"250px"} src={URL.createObjectURL(selectedImage)} />
                     <br />
+                    
                     <button onClick={() => setSelectedImage(null)}>Remove</button>
                 </div>
             )}
+            <label className="custom-file-upload">
+            <FontAwesomeIcon icon={faFileUpload} />
             <input
                 type="file"
                 name="myImage"
@@ -20,6 +30,10 @@ function PostUpload() {
                     setSelectedImage(event.target.files[0]);
                 }}
             />
+            <br></br>
+            <label htmlFor="fname">Caption</label>  <input type="text" id='caption' /> 
+            </label>
+            <FontAwesomeIcon onClick={handleSubmit} icon={faArrowCircleRight}  />
         </div>
         
     )

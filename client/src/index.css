@@ -1,3 +1,6 @@
+@import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Merienda&display=swap');
+
 body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
@@ -14,18 +17,19 @@ code {
 
 .nav-button {
   margin: 100px;
-  margin-top: 10px;
+  margin-top: 20px;
   color: rgb(202, 199, 199);
   margin-bottom: 10px;
+  font-size: 35px;
 }
 
 .nav-button:hover {
-  color: rgb(129, 129, 129);
+  color: rgb(255, 255, 255);
 }
 
 #camera {
-  position: relative;
-  float: left;
+  /* position: relative;
+  float: left; */
 }
 
 #search2 {
@@ -38,6 +42,7 @@ code {
   outline: 0;
   background: transparent;
   border-bottom: 1px solid rgb(146, 146, 146);
+  
 }
 
 input {
@@ -46,11 +51,88 @@ input {
 
 .user-card {
   /* border: 1px solid rgb(226, 226, 226); */
-  margin: 20px;
-  border-radius: 50px;
-  box-shadow: 5px 1px rgb(172, 172, 172);
+  /* margin: 20px; */
+  /* border-radius: 50px; */
+  /* box-shadow: 5px 1px rgb(172, 172, 172); */
+  max-width: 30%;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 h3 {
 margin: 5px;
+}
+
+#addPhoto {
+  color: white
+}
+
+.css-i9gxme {
+  -webkit-box-flex: 1;
+  -webkit-flex-grow: 1;
+  -ms-flex-positive: 1;
+  flex-grow: 0.1;
+}
+
+.navbar {
+  font-family: 'Pacifico', cursive;
+  font-size: 30px
+}
+
+#sign-out {
+  /* position: relative;
+  float: right; */
+}
+
+#home {
+  /* position: relative;
+  float: right; */
+}
+
+.SearchContainer {
+  
+}
+
+.addUser {
+  font-size: 20px;
+  color: rgb(20, 218, 46);
+}
+
+.chat {
+  font-size: 20px;
+  color: rgb(122, 122, 122);
+}
+
+h3 {
+  font-family: 'Dancing Script', cursive;
+  font-size: 40px;
+  color: white;
+  text-decoration: none;
+}
+
+h3:visited {
+  text-decoration: none;
+}
+
+#title {
+  text-decoration: none
+}
+
+input[type="file"] {
+  display: none;
+}
+
+.custom-file-upload {
+  display: inline-block;
+  padding: 6px 12px;
+  cursor: pointer;
+}
+
+#share {
+  font-family: 'Merienda', cursive;
+}
+
+#caption {
+  
 }

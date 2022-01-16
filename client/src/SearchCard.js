@@ -1,10 +1,13 @@
 import React from 'react'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faPlus } from '@fortawesome/free-solid-svg-icons'
+import { faComments } from '@fortawesome/free-solid-svg-icons'
 
 function SearchCard({user}) {
-    
     return (
-        <div className="user-card">
-            <h3>{user.username}</h3>
+        <div>
+            <h2>{user.username} <FontAwesomeIcon className='addUser' icon={faPlus} /> <FontAwesomeIcon className='chat' icon={faComments} /></h2>
+            
         </div>
     )
 }

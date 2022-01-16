@@ -1,13 +1,21 @@
 import React from 'react'
 import SearchCard from './SearchCard'
 
-function SearchContainer({users}) {
+function SearchContainer({search, users}) {
+
+    // const [usersContainer, setUsersContainer] = useState([])
+    // useEffect(() => {
+    //     fetch('/users')
+    //     .then(res => res.json())
+    //     .then(data => setUsersContainer(data))
+    // },[])
+
+    if (search === '') return <div></div>
     return (
         <div>
             {users.map((user) => {
                 return <SearchCard key={user.id} user={user}/>
             })}
-            
         </div>
     )
 }
