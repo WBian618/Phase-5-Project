@@ -12,7 +12,7 @@ function SearchContainer({search, users}) {
 
     if (search === '') return <div></div>
     return (
-        <div>
+        <div id='searchcontainer'>
             {users.map((user) => {
                 return <SearchCard key={user.id} user={user}/>
             })}

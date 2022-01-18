@@ -5,7 +5,7 @@ import { faComments } from '@fortawesome/free-solid-svg-icons'
 
 function SearchCard({user}) {
     return (
-        <div>
+        <div id='searchcard'>
             <h2>{user.username} <FontAwesomeIcon className='addUser' icon={faPlus} /> <FontAwesomeIcon className='chat' icon={faComments} /></h2>
             
         </div>

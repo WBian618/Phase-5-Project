@@ -43,7 +43,8 @@ export default function SignIn({ currentUser, setCurrentUser }) {
             body: JSON.stringify(session)
         })
             .then(res => res.json())
-            .then(x => x.username && setCurrentUser(x));
+            .then(x => x.username && setCurrentUser(x)
+            );
     };
 
     return (

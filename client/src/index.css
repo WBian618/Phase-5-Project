@@ -136,3 +136,16 @@ input[type="file"] {
 #caption {
   
 }
+
+#profilelink {
+  text-decoration: none;
+  color: black;
+}
+
+#searchcard {
+  
+}
+
+#searchcontainer {
+  position: relative;
+}

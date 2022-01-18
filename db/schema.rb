@@ -79,7 +79,7 @@ ActiveRecord::Schema.define(version: 2022_01_15_204614) do
     t.string "image"
     t.text "caption"
     t.integer "user_id"
-    t.integer "total_likes", default: 0
+    t.integer "total_likes"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end

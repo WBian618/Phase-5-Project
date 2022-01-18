@@ -5,7 +5,7 @@ class User < ApplicationRecord
     has_many :comments
     has_many :messages
     has_many :follows
-
+    
     has_many :posts, through: :saved_posts
 
     validates :username, presence: true, uniqueness: true

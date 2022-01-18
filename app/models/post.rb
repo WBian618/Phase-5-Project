@@ -3,7 +3,9 @@ class Post < ApplicationRecord
     has_many :comments
     has_many :saved_posts
     has_many :users, through: :saved_posts
+    belongs_to :user
 
-    validates :image, presence: true
-    has_one_attached :image
+    has_one_attached :picture
+    
+    
 end

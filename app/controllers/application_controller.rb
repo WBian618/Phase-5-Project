@@ -19,4 +19,8 @@ def find_user
   @user = User.find_by(id: params[:user_id])
 end
 
+def find_post
+  @post = Post.find(params[:id])
+end
+
 end
