@@ -25,6 +25,7 @@ function NewCard({post}) {
         setLike(!like)
         
     }
+    console.log(post)
     return (
         <Card key={post.id}
             sx={{ height: '100%', display: 'flex', flexDirection: 'column' }}
@@ -35,7 +36,7 @@ function NewCard({post}) {
                     // 16:9
                     pt: '56.25%',
                 }}
-                image="https://source.unsplash.com/random"
+                image={post.image_url}
                 alt="random"
             />
             <CardContent sx={{ flexGrow: 1 }}>

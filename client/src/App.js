@@ -20,6 +20,10 @@ function App() {
   const [posts, setPosts] = useState([])
   const [comments, setComments] = useState([]);
 
+  const handleSubmit = e => {
+    e.preventDefault();
+  }
+
   const filteredUsers = users.filter((user) => user.username.toLowerCase().includes(search.toLowerCase()))
   let caption;
   let image;

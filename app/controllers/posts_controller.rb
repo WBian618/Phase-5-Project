@@ -3,8 +3,9 @@ class PostsController < ApplicationController
     skip_before_action :authenticate_user, only: [:create,:index]
 
     def create  
-        post = Post.create!(post_params)
-        if post.valid?
+        post = Post.new(post_params)
+        post.user = User.find(session[:user_id])
+        if post.save
             render json: post, status: :created
         end
     end

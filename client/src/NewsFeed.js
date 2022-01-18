@@ -91,7 +91,7 @@ export default function NewsFeed({ posts }) {
                         </Stack>
                     </Container>
                 </Box>
-                <Container sx={{ py: 8 }} maxWidth="md">
+                <Container id='container1' sx={{ py: 8 }} maxWidth="md">
                     {/* End hero unit */}
                     <Grid container spacing={4}>
                         {posts.map((post) => (
