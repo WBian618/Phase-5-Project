@@ -18,14 +18,51 @@ import { createTheme, ThemeProvider } from '@mui/material/styles';
 import { useState } from 'react'
 import ThumbUpIcon from '@mui/icons-material/ThumbUp';
 
-function NewCard({post}) {
+function NewCard({post, currentUser, setPosts, posts, handleRemovePost, id}) {
     const [like, setLike] = useState(false)
 
     function handleLike() {
         setLike(!like)
         
     }
+    console.log(currentUser)
     console.log(post)
+
+    const ownPost = () => {
+        if (post.user_id === currentUser.id) {
+            return (
+                <div>
+                    <Button size="small">Edit</Button>
+                    <Button onClick={handleDelete} size="small">Delete</Button>
+                </div>
+            )
+        } else {
+            return null
+        }
+    }
+
+    // function handleDelete(postToRemove) {
+    //     fetch(`/posts/${post.id}`, {
+    //         method: 'DELETE',
+    //         headers: {
+    //         'Content-Type': 'application/json'
+    //     }
+    //     })
+    //         .then(res => res.json())
+    //         .then(data => 
+    //             {
+    //         setPosts((data) =>
+    //             posts.filter((data) => data.id !== parseInt(postToRemove.target.id))
+    //             );
+    //         })
+    // }
+    function handleDelete() {
+        fetch(`/posts/${post.id}`, {
+          method: "DELETE",
+        });
+        handleRemovePost(id)
+      }
+
     return (
         <Card key={post.id}
             sx={{ height: '100%', display: 'flex', flexDirection: 'column' }}
@@ -47,13 +84,13 @@ function NewCard({post}) {
                     {post.caption}
                 </Typography>
             </CardContent>
-            <CardActions>
+            <CardActions>{post.total_likes}
                 {like ? (
                     <Button onClick={handleLike} size="small"><ThumbUpIcon /></Button>
                 ) : (
-                    <Button onClick={handleLike} size="small">Like</Button>
+                    <Button onClick={handleLike} size="small">Like </Button>
                 )}
-                <Button size="small">Edit</Button>
+                {ownPost()}
             </CardActions>
         </Card>
     )

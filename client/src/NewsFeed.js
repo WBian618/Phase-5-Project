@@ -34,7 +34,7 @@ function Copyright() {
 
 const theme = createTheme();
 
-export default function NewsFeed({ posts }) {
+export default function NewsFeed({ posts, currentUser, setPosts, handleRemovePost }) {
     const [like, setLike] = useState(false)
 
 
@@ -44,7 +44,7 @@ export default function NewsFeed({ posts }) {
         setLike(!like)
         
     }
-    console.log(like)
+
     return (
         <ThemeProvider theme={theme}>
             <CssBaseline />
@@ -95,7 +95,7 @@ export default function NewsFeed({ posts }) {
                     {/* End hero unit */}
                     <Grid container spacing={4}>
                         {posts.map((post) => (
-                            <NewCard key={post.id} post={post}/>
+                            <NewCard currentUser={currentUser} id={post.id} key={post.id} post={post} setPosts={setPosts} posts={posts} handleRemovePost={handleRemovePost}/>
                             // <Grid item key={post.id} xs={12} sm={6} md={4}>
                                 // <Card key={post.id}
                                 //     sx={{ height: '100%', display: 'flex', flexDirection: 'column' }}

@@ -29,7 +29,7 @@ function App() {
   let image;
   const mappedPosts = posts.map((post) => {
     let caption = post.caption
-    console.log(post.caption)
+    // console.log(post.caption)
   })
 
   useEffect(() => {
@@ -50,13 +50,18 @@ function App() {
       .then(res => res.json())
       .then(data => setPosts(data));
   }, [])
-console.log(posts)
+// console.log(posts)
 
   useEffect(() => {
     fetch('/comments')
       .then(res => res.json())
       .then(data => setComments(data));
   }, [])
+
+  function handleRemovePost(id) {
+    const newPosts = posts.filter((post) => post.id !== id)
+    setPosts(newPosts)
+  }
 
   if (!currentUser) {
     return (
@@ -77,10 +82,10 @@ console.log(posts)
           <NavBar setCurrentUser={setCurrentUser} users={filteredUsers} setUsers={setUsers} setSearch={setSearch} search={search} />
           <SearchContainer users={filteredUsers} search={search} />
           <Routes>
-            <Route path="/home" element={<NewsFeed posts={posts} mappedPosts={mappedPosts} />} />
+            <Route path="/home" element={<NewsFeed handleRemovePost={handleRemovePost} currentUser={currentUser} posts={posts} setPosts={setPosts} mappedPosts={mappedPosts} />} />
             <Route path='/upload' element={<PostUpload currentUser={currentUser}/>} />
             <Route path='search' element={<Search />} />
-            <Route path='/profile' element={<Profile />} />
+            <Route path='/profile' element={<Profile posts={posts} currentUser={currentUser}/>} />
             {/* <SignUp />
           <SignIn  /> */}
           </Routes>
