@@ -67,3 +67,40 @@ input[type="file"] {
   text-decoration: none;
   color: black;
 }
+
+#profiletool {
+  background-color:rgb(3, 150, 235)
+}
+
+#caption {
+  height: 30px;
+  width: 300px;
+  border-radius: 20px;
+}
+
+#share {
+  font-family: 'Dancing Script', cursive;
+}
+
+#img {
+  max-width:400px
+}
+
+#delete {
+  position: relative;
+  left: 170px
+}
+
+#edit {
+  position: relative;
+  right: 70px;
+  bottom: 25px;
+  max-width: 300px;
+  background-color: aliceblue;
+}
+
+#editSubmit {
+  position: relative;
+  bottom: 22px;
+  right: 60px;
+}

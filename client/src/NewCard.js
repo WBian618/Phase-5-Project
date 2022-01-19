@@ -17,23 +17,62 @@ import Link from '@mui/material/Link';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 import { useState } from 'react'
 import ThumbUpIcon from '@mui/icons-material/ThumbUp';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faEdit } from '@fortawesome/free-solid-svg-icons'
 
-function NewCard({post, currentUser, setPosts, posts, handleRemovePost, id}) {
+function NewCard({ post, currentUser, setPosts, posts, handleRemovePost, id }) {
     const [like, setLike] = useState(false)
+    const [edit, setEdit] = useState(false)
+    const [caption, setCaption] = useState({
+        caption: ""
+    });
 
     function handleLike() {
         setLike(!like)
-        
     }
-    console.log(currentUser)
-    console.log(post)
+
+    const handleUpdateClick = e => {
+        e.preventDefault();
+        const formData = new FormData();
+        formData.append('caption', caption)
+        console.log(caption)
+        fetch(`/posts/${id}`, {
+            method: 'PATCH',
+            body: formData
+        })
+    }
+    
+    const handleUpdatePost = (e) => {
+        setCaption(e.target.value);
+    }
+    
+    console.log(caption)
+    
+    function handleEdit() {
+        setEdit(!edit)
+    }
+
+    const editForm = () => {
+        if (edit === false) {
+            return (
+                null
+            )
+        } else {
+            return (
+                <label>
+                    <input id='edit' onChange={handleUpdatePost} type="text"></input>
+                    <FontAwesomeIcon onClick={handleUpdateClick} id='editSubmit' icon={faEdit} />
+                </label>
+            )
+        }
+    }
 
     const ownPost = () => {
         if (post.user_id === currentUser.id) {
             return (
                 <div>
-                    <Button size="small">Edit</Button>
-                    <Button onClick={handleDelete} size="small">Delete</Button>
+                    <Button onClick={handleEdit} size="small">Edit</Button>
+                    <Button id='delete' onClick={handleDelete} size="small">Delete</Button>
                 </div>
             )
         } else {
@@ -41,33 +80,22 @@ function NewCard({post, currentUser, setPosts, posts, handleRemovePost, id}) {
         }
     }
 
-    // function handleDelete(postToRemove) {
-    //     fetch(`/posts/${post.id}`, {
-    //         method: 'DELETE',
-    //         headers: {
-    //         'Content-Type': 'application/json'
-    //     }
-    //     })
-    //         .then(res => res.json())
-    //         .then(data => 
-    //             {
-    //         setPosts((data) =>
-    //             posts.filter((data) => data.id !== parseInt(postToRemove.target.id))
-    //             );
-    //         })
-    // }
+
     function handleDelete() {
-        fetch(`/posts/${post.id}`, {
-          method: "DELETE",
+        fetch(`/posts/${id}`, {
+            method: "DELETE",
         });
         handleRemovePost(id)
-      }
+    }
+
+    console.log(id)
 
     return (
         <Card key={post.id}
             sx={{ height: '100%', display: 'flex', flexDirection: 'column' }}
         >
             <CardMedia
+                id='img'
                 component="img"
                 sx={{
                     // 16:9
@@ -81,16 +109,17 @@ function NewCard({post, currentUser, setPosts, posts, handleRemovePost, id}) {
                     {post.caption}
                 </Typography>
                 <Typography>
-                    {post.caption}
+                    {/* {post.caption} */}
                 </Typography>
             </CardContent>
-            <CardActions>{post.total_likes}
+            <CardActions>
                 {like ? (
                     <Button onClick={handleLike} size="small"><ThumbUpIcon /></Button>
                 ) : (
                     <Button onClick={handleLike} size="small">Like </Button>
                 )}
                 {ownPost()}
+                {editForm()}
             </CardActions>
         </Card>
     )

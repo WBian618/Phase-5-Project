@@ -11,13 +11,19 @@ class PostsController < ApplicationController
     end
 
     def update
-        @post.update!(update_post)
-        render json:@post, status: :ok
+        post = Post.find(params[:id])
+        post.user = User.find(session[:user_id])
+        if post.update(post_params)
+            render json: post, status: :ok
+        end
     end
 
     def destroy
-        @post.destroy
+        post = Post.find(params[:id]) 
+        post.user = User.find(session[:user_id])
+        if post.destroy
         render json:{},status: :ok
+        end
     end
 
     def show

@@ -34,14 +34,15 @@ const cards = [1, 2, 3, 4, 5, 6, 7, 8, 9];
 const theme = createTheme();
 
 export default function Profile({posts, currentUser}) {
+    console.log(currentUser)
     return (
         <ThemeProvider theme={theme}>
             <CssBaseline />
             <AppBar position="relative">
-                <Toolbar>
+                <Toolbar id='profiletool'>
                     
                     <Typography variant="h6" color="inherit" noWrap>
-                        Profile
+                        {currentUser.username}
                     </Typography>
                 </Toolbar>
             </AppBar>

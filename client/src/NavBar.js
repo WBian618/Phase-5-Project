@@ -1,39 +1,3 @@
-// import React from 'react'
-// import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-// import { faCamera } from '@fortawesome/free-solid-svg-icons'
-// import { faHome } from '@fortawesome/free-solid-svg-icons'
-// import { faSearch } from '@fortawesome/free-solid-svg-icons'
-// import { faSignOutAlt } from '@fortawesome/free-solid-svg-icons'
-// import { NavLink } from "react-router-dom"
-// import './index.css';
-// import { useNavigate } from 'react-router-dom'
-
-// function NavBar({setCurrentUser}) {
-
-//     const navigate = useNavigate();
-
-//   function handleLogout() {
-//     fetch("/logout", { method: "DELETE" })
-//       .then(() => console.log("Delete successful"))
-//       .then((x) => {
-//         setCurrentUser("");
-//         navigate("/");
-//       });
-//   }
-
-//     return (
-//         <div ClassName="navbar">
-//             <NavLink to='/upload'><FontAwesomeIcon className="nav-button" id='camera' icon={faCamera} /></NavLink>
-//             <NavLink to='/home'><FontAwesomeIcon className="nav-button" id="home" icon={faHome} /></NavLink>
-//             <NavLink to='/search'><FontAwesomeIcon className="nav-button" id="search" icon={faSearch} /></NavLink>
-//             <FontAwesomeIcon className="nav-button" id="sign-out" icon={faSignOutAlt} onClick={handleLogout} />
-
-//         </div>
-//     )
-// }
-
-// export default NavBar
-
 import * as React from 'react';
 import { styled, alpha } from '@mui/material/styles';
 import AppBar from '@mui/material/AppBar';
@@ -53,6 +17,8 @@ import { useNavigate } from 'react-router-dom'
 import BookmarkBorderIcon from '@mui/icons-material/BookmarkBorder';
 import AddAPhotoIcon from '@mui/icons-material/AddAPhoto';
 import { NavLink } from "react-router-dom"
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faCameraRetro } from '@fortawesome/free-solid-svg-icons'
 
 
 const Search = styled('div')(({ theme }) => ({
@@ -231,7 +197,7 @@ export default function NavBar({setCurrentUser,users, setSearch, search, setUser
             component="div"
             sx={{ display: { xs: 'none', sm: 'block' } }}
           >
-            <NavLink id='title' to='/home'><h3>InstaChat</h3></NavLink>
+            <NavLink id='title' to='/home'><h3><FontAwesomeIcon icon={faCameraRetro} /> InstaChat</h3></NavLink>
           </Typography>
           <Search/>
             <SearchIconWrapper>
