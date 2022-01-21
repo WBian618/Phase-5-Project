@@ -7,7 +7,7 @@ import { faTrashAlt } from '@fortawesome/free-solid-svg-icons'
 function PostUpload() {
     const [selectedImage, setSelectedImage] = useState(null)
     const [caption, setCaption] = useState({
-        caption: ""
+        caption: " "
     });
 
     console.log(caption)
@@ -26,6 +26,7 @@ function PostUpload() {
             method: 'POST',
             body: formData
         })
+        window.location.href='/home'
     }
     const handleChange = (e) => {
         setCaption(e.target.value);
@@ -57,7 +58,7 @@ function PostUpload() {
                 }}ref={imageUpload}
             />
             <br></br> <br></br>
-            <label for="fname">Share your thoughts...</label> <br></br> <br></br><input type="text" id='caption' value={caption.caption} name="caption" onChange={handleChange} /> 
+            <label for="fname">Write a caption</label> <br></br><input type="text" id='caption' value={caption.caption} name="caption" onChange={handleChange} /> 
             </label>
             <FontAwesomeIcon onClick={handleSubmit} icon={faArrowCircleRight}  />
         </div>

@@ -93,7 +93,7 @@ export default function NewsFeed({ posts, currentUser, setPosts, handleRemovePos
                 </Box> */}
                 <Container sx={{ py: 8 }} maxWidth="md">
                     {/* End hero unit */}
-                    <Grid container spacing={4}>
+                    <Grid id='grid' container spacing={4}>
                         {posts.map((post) => (
                             <NewCard currentUser={currentUser} id={post.id} key={post.id} post={post} setPosts={setPosts} posts={posts} handleRemovePost={handleRemovePost}/>
                             
@@ -102,22 +102,7 @@ export default function NewsFeed({ posts, currentUser, setPosts, handleRemovePos
                     
                 </Container>
             </main>
-            {/* Footer */}
-            <Box sx={{ bgcolor: 'background.paper', p: 6 }} component="footer">
-                <Typography variant="h6" align="center" gutterBottom>
-
-                </Typography>
-                <Typography
-                    variant="subtitle1"
-                    align="center"
-                    color="text.secondary"
-                    component="p"
-                >
-                    Created by Webster Bian
-                </Typography>
-                <Copyright />
-            </Box>
-            {/* End footer */}
+            
         </ThemeProvider>
     );
 }

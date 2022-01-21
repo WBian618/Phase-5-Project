@@ -52,11 +52,11 @@ function App() {
   }, [])
 // console.log(posts)
 
-  useEffect(() => {
-    fetch('/comments')
-      .then(res => res.json())
-      .then(data => setComments(data));
-  }, [])
+  // useEffect(() => {
+  //   fetch('/comments')
+  //     .then(res => res.json())
+  //     .then(data => setComments(data));
+  // }, [])
 
   function handleRemovePost(id) {
     const newPosts = posts.filter((post) => post.id !== id)
@@ -79,7 +79,7 @@ function App() {
       <div className="App">
         <header className="App-header">
 
-          <NavBar setCurrentUser={setCurrentUser} users={filteredUsers} setUsers={setUsers} setSearch={setSearch} search={search} />
+          <NavBar className='navbar' setCurrentUser={setCurrentUser} users={filteredUsers} setUsers={setUsers} setSearch={setSearch} search={search} />
           <SearchContainer users={filteredUsers} search={search} />
           <Routes>
             <Route path="/home" element={<NewsFeed handleRemovePost={handleRemovePost} currentUser={currentUser} posts={posts} setPosts={setPosts} mappedPosts={mappedPosts} />} />

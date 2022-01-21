@@ -60,6 +60,7 @@ export default function SignUp({currentUser, setCurrentUser}) {
             password: "",
             password_confirmation: "",
         });
+        window.location.href='/SignIn'
     }
 
     return (

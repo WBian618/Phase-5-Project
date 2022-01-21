@@ -40,6 +40,7 @@ function NewCard({ post, currentUser, setPosts, posts, handleRemovePost, id }) {
             method: 'PATCH',
             body: formData
         })
+        window.location.reload()
     }
     
     const handleUpdatePost = (e) => {
@@ -70,9 +71,9 @@ function NewCard({ post, currentUser, setPosts, posts, handleRemovePost, id }) {
     const ownPost = () => {
         if (post.user_id === currentUser.id) {
             return (
-                <div>
-                    <Button onClick={handleEdit} size="small">Edit</Button>
-                    <Button id='delete' onClick={handleDelete} size="small">Delete</Button>
+                <div >
+                    <Button className='editanddelete' onClick={handleEdit} size="small">Edit</Button>
+                    <Button className='editanddelete' id='delete' onClick={handleDelete} size="small">Delete</Button>
                 </div>
             )
         } else {
@@ -91,15 +92,19 @@ function NewCard({ post, currentUser, setPosts, posts, handleRemovePost, id }) {
     console.log(id)
 
     return (
-        <Card key={post.id}
-            sx={{ height: '100%', display: 'flex', flexDirection: 'column' }}
+        <Card className='postcard' key={post.id}
+            sx={{ height: '100%', display: 'flex', flexDirection: 'column', backgroundColor:'rgb(155, 155, 155)'}}
         >
+            <Typography id='postusername'>
+                <h2>{post.user.username}</h2>
+            </Typography>
             <CardMedia
                 id='img'
                 component="img"
                 sx={{
+                
                     // 16:9
-                    pt: '56.25%',
+                    pt: '.25%',
                 }}
                 image={post.image_url}
                 alt="random"
